@@ -1,154 +1,270 @@
 <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header align-items-center">
-        <a class="navbar-brand" >
-          <img src="https://lh3.googleusercontent.com/proxy/REfyvOx9MywJx4isj0tF2mMD90TtNoHcxpyi0DEclgw4Vyy6xobdvqIKPbLCDJ1ai5fGMekwNLw_iwNvoBC1_4GkMEyVzhG-8U5HHFkMU4ALq6kydcWU6UOVAZIt" class="navbar-brand-img" alt="...">
-          <h2>Rizka </h2>
-          <h3>Finance</h3>
-        </a>
-      </div>
-      <div class="navbar-inner mt-5">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" [routerLink]="'/admin/home'" routerLinkActive="router-link-active">
-                <i class="fa fa-home fa-lg text-primary"></i>
-                <span class="nav-link-text">Home</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/user'" routerLinkActive="router-link-active">
-                <i class="fa fa-user-circle text-orange"></i>
-                <span class="nav-link-text">User</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/brand'" routerLinkActive="router-link-active">
-                <i class="fa fa-bandcamp text-primary"></i>
-                <span class="nav-link-text" >Brand</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/product'" routerLinkActive="router-link-active">
-                <i class="fa fa-product-hunt fa-2x text-yellow"></i>
-                <span class="nav-link-text" >Product</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/suplier'" routerLinkActive="router-link-active">
-                <i class="fa fa-users text-purple"></i>
-                <span class="nav-link-text" >Suplier</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/profit-loss'" routerLinkActive="router-link-active">
+<nav
+  class="
+    sidenav
+    navbar navbar-vertical
+    fixed-left
+    navbar-expand-xs navbar-light
+    bg-white
+  "
+  id="sidenav-main"
+>
+  <div class="scrollbar-inner">
+    <!-- Brand -->
+    <div class="sidenav-header align-items-center">
+      <a class="navbar-brand">
+        <img
+          src="https://www.seekpng.com/png/detail/72-729756_how-to-add-a-new-user-to-your.png"
+          class="navbar-brand-img"
+          alt="..."
+        />
+        <h2>{{ userName }}</h2>
+        <h3>{{ userRole }}</h3>
+      </a>
+    </div>
+    <div class="navbar-inner mt-5">
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+        <!-- Nav items -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              [routerLink]="'/admin/home'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-home fa-lg text-primary"></i>
+              <span class="nav-link-text">Home</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/user'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-user-circle text-orange"></i>
+              <span class="nav-link-text">User</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/brand'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-bandcamp text-primary"></i>
+              <span class="nav-link-text">Brand</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/product'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-product-hunt fa-2x text-yellow"></i>
+              <span class="nav-link-text">Product</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/suplier'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-users text-purple"></i>
+              <span class="nav-link-text">Suplier</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isOwner()">
+            <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-check-circle text-info"></i>
+              <span class="nav-link-text">Report</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/profit-loss'"
+                routerLinkActive="router-link-active"
+              >
                 <i class="fa fa-check-circle text-info"></i>
-                <span class="nav-link-text" >Profit & Loss</span>
+                <span>Profit & Loss</span>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/product-effectiveness'" routerLinkActive="router-link-active">
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/product-effectiveness'"
+                routerLinkActive="router-link-active"
+              >
                 <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text" >Product Effectiveness</span>
+                <span>Product Effectiveness</span>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/purchase-order'" routerLinkActive="router-link-active">
-                <i class="ni ni-bag-17 text-green"></i>
-                <span class="nav-link-text" >Purchase Order</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/delivery-order'" routerLinkActive="router-link-active">
-                <i class="ni ni-delivery-fast text-blue"></i>
-                <span class="nav-link-text" >Delivery Order</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/invoice'" routerLinkActive="router-link-active">
-                <i class="ni ni-archive-2 text-red"></i>
-                <span class="nav-link-text">Invoice</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/payable'" routerLinkActive="router-link-active">
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/purchase-order'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="ni ni-bag-17 text-green"></i>
+              <span class="nav-link-text">Purchase Order</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/delivery-order'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="ni ni-delivery-fast text-blue"></i>
+              <span class="nav-link-text">Delivery Order</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isFinance()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/invoice'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="ni ni-archive-2 text-red"></i>
+              <span class="nav-link-text">Invoice</span>
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isOwner() || isFinance()">
+            <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-check-circle text-info"></i>
+              <span class="nav-link-text">Account</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/payable'"
+                routerLinkActive="router-link-active"
+              >
                 <i class="ni ni-send text-pink"></i>
-                <span class="nav-link-text" >Payable</span>
+                <span>Payable</span>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/receivable'" routerLinkActive="router-link-active">
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/receivable'"
+                routerLinkActive="router-link-active"
+              >
                 <i class="ni ni-send text-primary"></i>
-                <span class="nav-link-text" >Receivable</span>
+                <span>Receivable</span>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/order'" routerLinkActive="router-link-active">
-                <i class="fa fa-shopping-bag text-yellow"></i>
-                <span class="nav-link-text">Order</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" [routerLink]="'/admin/order-receipt'" routerLinkActive="router-link-active">
-                <i class="ni ni-bullet-list-67  text-cyan"></i>
-                <span class="nav-link-text">Order Receipt</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isCashier()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/order'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="fa fa-shopping-bag text-yellow"></i>
+              <span class="nav-link-text">Order</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isCashier()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/order-receipt'"
+              routerLinkActive="router-link-active"
+            >
+              <i class="ni ni-bullet-list-67 text-cyan"></i>
+              <span class="nav-link-text">Order Receipt</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Main content -->
+<div class="main-content" id="panel">
+  <!-- Topnav -->
+  <nav
+    class="
+      navbar navbar-top navbar-expand navbar-dark
+      bg-gradient-purple
+      border-bottom
+    "
+  >
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Search form -->
+        <form
+          class="navbar-search navbar-search-light form-inline mr-sm-3"
+          id="navbar-search-main"
+        >
+          <div class="form-group mb-0">
+            <div class="input-group input-group-alternative input-group-merge">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                  ><i class="fa fa-search"></i
+                ></span>
+              </div>
+              <input class="form-control" placeholder="Search" type="text" />
+            </div>
+          </div>
+          <button
+            type="button"
+            class="close"
+            data-action="search-close"
+            data-target="#navbar-search-main"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </form>
+        <!-- Navbar links -->
+        <ul class="navbar-nav align-items-center ml-md-auto">
+          <li class="nav-item d-xl-none">
+            <!-- Sidenav toggler -->
+            <div
+              class="pr-3 sidenav-toggler sidenav-toggler-dark"
+              data-action="sidenav-pin"
+              data-target="#sidenav-main"
+            >
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item d-sm-none">
+            <a
+              class="nav-link"
+              href="#"
+              data-action="search-show"
+              data-target="#navbar-search-main"
+            >
+              <i class="ni ni-zoom-split-in"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+          <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+        </ul>
       </div>
     </div>
   </nav>
-  <!-- Main content -->
-  <div class="main-content" id="panel">
-    <!-- Topnav -->
-    <nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-purple border-bottom">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-            <div class="form-group mb-0">
-              <div class="input-group input-group-alternative input-group-merge">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fa fa-search"></i></span>
-                </div>
-                <input class="form-control" placeholder="Search" type="text">
-              </div>
-            </div>
-            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </form>
-          <!-- Navbar links -->
-          <ul class="navbar-nav align-items-center ml-md-auto ">
-            <li class="nav-item d-xl-none">
-              <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item d-sm-none">
-              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                <i class="ni ni-zoom-split-in"></i>
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-            <button class="btn btn-danger">Logout</button>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <router-outlet></router-outlet>
-  </div>
-
-
-
+  <router-outlet></router-outlet>
+</div>

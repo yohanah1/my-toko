@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <input
       type="email"
@@ -8,9 +8,12 @@
       placeholder="Email"
       name="email"
       required
+      email
       formControlName="email"
     />
-    <small *ngIf="false" class="help-block text-danger"
+    <small
+      *ngIf="!loginForm.get('email')!.valid && loginForm.get('email')!.touched"
+      class="help-block text-danger"
       >Please Fiil a Valid Email</small
     >
   </div>
@@ -22,10 +25,15 @@
       placeholder="Password"
       name="password"
       required
+      minlength="6"
       formControlName="password"
     />
-    <small *ngIf="false" class="help-block text-danger"
-      >Password Must be 6-10 characterEmail</small
+    <small
+      *ngIf="
+        !loginForm.get('password')!.valid && loginForm.get('password')!.touched
+      "
+      class="help-block text-danger"
+      >Password Must be 6-10 character</small
     >
   </div>
   <div class="form-group form-check">
@@ -35,7 +43,11 @@
       <a href="forgot.html">Forgot Password?</a>
     </div>
   </div>
-  <button type="submit" class="btn btn-lg btn-primary col-12 col-md-12 Button">
+  <button
+    [disabled]="!loginForm.valid"
+    type="submit"
+    class="btn btn-lg btn-primary col-12 col-md-12 Button"
+  >
     Login
   </button>
 </form>

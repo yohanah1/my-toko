@@ -1,0 +1,12 @@
+.Loader {
+  position: fixed !important;
+  left: 44% !important;
+  top: 40% !important;
+}
+
+.LoaderImage {
+  max-width: 150px !important;
+  max-height: 150px !important;
+  width: auto !important;
+  height: auto !important;
+}
