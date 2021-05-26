@@ -1,5 +1,5 @@
 <!-- Main content -->
-<div class="main-content">
+<div class="main-content" *ngIf="isLoaded">
   <!-- Header -->
   <div class="header bg-gradient-blue py-4 py-lg-5">
     <div class="container">
@@ -26,10 +26,11 @@
             <div class="text-center text-muted">
               <h3>Login to your Account</h3>
             </div>
-            <app-login-form></app-login-form>
+            <app-login-form (loginUser)="loginUser($event)"></app-login-form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-page-loader *ngIf="!isLoaded"></app-page-loader>
