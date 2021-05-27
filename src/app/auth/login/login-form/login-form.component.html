@@ -40,7 +40,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
     <div class="d-flex justify-content-between">
       <label for="exampleCheck1">Remember Me</label>
-      <a href="forgot.html">Forgot Password?</a>
+      <a [routerLink]="'/auth/password/reset-request'" routerLinkActive="router-link-active">Forgot Password?</a>
     </div>
   </div>
   <button
