@@ -18,6 +18,7 @@ import { ReceivableComponent } from './admin-root/receivable/receivable.componen
 import { OrderComponent } from './admin-root/order/order.component';
 import { OrderReceiptComponent } from './admin-root/order-receipt/order-receipt.component';
 import { JumbotronComponent } from './admin-root/home/jumbotron/jumbotron.component';
+import { CardComponent } from './admin-root/home/card/card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { JumbotronComponent } from './admin-root/home/jumbotron/jumbotron.compon
     ReceivableComponent,
     OrderComponent,
     OrderReceiptComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    CardComponent
     ],
   imports: [CommonModule, AdminRoutingModule],
 })

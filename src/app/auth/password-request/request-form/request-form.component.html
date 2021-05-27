@@ -1,0 +1,28 @@
+<form>
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control form-control-md"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Email"
+        name="email"
+        required
+        email
+        formControlName="email"
+      />
+      <!-- <small
+        *ngIf="!loginForm.get('email')!.valid && loginForm.get('email')!.touched"
+        class="help-block text-danger"
+        >Please Fiil a Valid Email</small
+      > -->
+    </div>
+    <button
+      type="submit"
+      class="btn btn-lg btn-primary col-12 col-md-12 Button"
+      [routerLink]="'/auth/password/reset'" routerLinkActive="router-link-active"
+    >
+      Request Reset Password
+    </button>
+</form>
+

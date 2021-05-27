@@ -15,11 +15,11 @@
       <a class="navbar-brand">
         <img
           src="https://www.seekpng.com/png/detail/72-729756_how-to-add-a-new-user-to-your.png"
-          class="navbar-brand-img"
-          alt="..."
+          class="navbar-brand-img Navbar-Img"
+          alt="user-img"
         />
-        <h2>{{ userName }}</h2>
-        <h3>{{ userRole }}</h3>
+        <h3 class="Username">{{ userName }}</h3>
+        <h4>{{ userRole }}</h4>
       </a>
     </div>
     <div class="navbar-inner mt-5">
@@ -46,6 +46,38 @@
               <i class="fa fa-user-circle text-orange"></i>
               <span class="nav-link-text">User</span>
             </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isOwner()">
+            <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa fa-book text-info"></i>
+              <span class="nav-link-text">Report</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/profit-loss'"
+                routerLinkActive="router-link-active"
+              >
+                <i class="ni ni-chart-pie-35 text-warning"></i>
+                <span>Profit & Loss</span>
+              </a>
+              <a
+                class="dropdown-item"
+                [routerLink]="'/admin/product-effectiveness'"
+                routerLinkActive="router-link-active"
+              >
+                <i class="ni ni-chart-bar-32 text-pink"></i>
+                <span>Product Effectiveness</span>
+              </a>
+            </div>
           </li>
           <li class="nav-item" *ngIf="isOwner() || isInventory()">
             <a
@@ -76,38 +108,6 @@
               <i class="fa fa-users text-purple"></i>
               <span class="nav-link-text">Suplier</span>
             </a>
-          </li>
-          <li class="nav-item dropdown" *ngIf="isOwner()">
-            <a
-              class="nav-link"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fa fa-check-circle text-info"></i>
-              <span class="nav-link-text">Report</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a
-                class="dropdown-item"
-                [routerLink]="'/admin/profit-loss'"
-                routerLinkActive="router-link-active"
-              >
-                <i class="fa fa-check-circle text-info"></i>
-                <span>Profit & Loss</span>
-              </a>
-              <a
-                class="dropdown-item"
-                [routerLink]="'/admin/product-effectiveness'"
-                routerLinkActive="router-link-active"
-              >
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span>Product Effectiveness</span>
-              </a>
-            </div>
           </li>
           <li class="nav-item" *ngIf="isOwner() || isInventory()">
             <a
@@ -149,7 +149,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i class="fa fa-check-circle text-info"></i>
+              <i class="fa fa-address-card text-info"></i>
               <span class="nav-link-text">Account</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -202,7 +202,7 @@
   <nav
     class="
       navbar navbar-top navbar-expand navbar-dark
-      bg-gradient-purple
+      bg-gradient-blue
       border-bottom
     "
   >
@@ -261,7 +261,7 @@
           </li>
         </ul>
         <ul class="navbar-nav align-items-center ml-auto ml-md-0">
-          <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+          <button class="btn btn-warning Btn" (click)="onLogout()">Logout</button>
         </ul>
       </div>
     </div>
