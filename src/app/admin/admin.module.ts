@@ -19,6 +19,8 @@ import { OrderComponent } from './admin-root/order/order.component';
 import { OrderReceiptComponent } from './admin-root/order-receipt/order-receipt.component';
 import { JumbotronComponent } from './admin-root/home/jumbotron/jumbotron.component';
 import { CardComponent } from './admin-root/home/card/card.component';
+import { UserFormComponent } from './admin-root/user/user-form/user-form.component';
+import { ShowUserComponent } from './admin-root/user/show-user/show-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CardComponent } from './admin-root/home/card/card.component';
     OrderComponent,
     OrderReceiptComponent,
     JumbotronComponent,
-    CardComponent
+    CardComponent,
+    UserFormComponent,
+    ShowUserComponent
     ],
   imports: [CommonModule, AdminRoutingModule],
 })
