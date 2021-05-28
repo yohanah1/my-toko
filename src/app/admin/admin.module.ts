@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -21,6 +22,7 @@ import { JumbotronComponent } from './admin-root/home/jumbotron/jumbotron.compon
 import { CardComponent } from './admin-root/home/card/card.component';
 import { UserFormComponent } from './admin-root/user/user-form/user-form.component';
 import { ShowUserComponent } from './admin-root/user/show-user/show-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,8 +44,13 @@ import { ShowUserComponent } from './admin-root/user/show-user/show-user.compone
     JumbotronComponent,
     CardComponent,
     UserFormComponent,
-    ShowUserComponent
-    ],
-  imports: [CommonModule, AdminRoutingModule],
+    ShowUserComponent,
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AdminModule {}
