@@ -1,5 +1,13 @@
 <div class="container mt-3">
-    <h2>Register</h2>
-    <app-user-form></app-user-form>
-    <app-show-user></app-show-user>
+  <h2 *ngIf="isLoaded">Create User</h2>
+  <app-user-form
+    (createUser)="createUser($event)"
+    *ngIf="isLoaded"
+  ></app-user-form>
+  <app-show-user [users]="users" *ngIf="isLoaded && !isError"></app-show-user>
+  <app-page-error
+    [errorMessage]="errorMessage"
+    *ngIf="isLoaded && isError"
+  ></app-page-error>
+  <app-page-admin-loader *ngIf="!isLoaded"></app-page-admin-loader>
 </div>

@@ -1,32 +1,20 @@
 <div class="table-responsive mt-4">
-    <table class="table align-items-center">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col" class="sort text-white" data-sort="no">No</th>
-                <th scope="col" class="sort text-white" data-sort="name">Name</th>
-                <th scope="col" class="sort text-white" data-sort="email">Email</th>
-                <th scope="col" class="sort text-white" data-sort="password">Password</th>
-                <th scope="col" class="sort text-white" data-sort="role">Role</th>
-            </tr>
-        </thead>
-        <tbody class="list">
-            <tr>
-                <td class="no">
-                    1
-                </td>
-                <td class="name">
-                    Rizka Indah Puspita
-                </td>
-                <td class="email">
-                    rizkaindahpuspita@gmail.com
-                </td>
-                <td class="password">
-                    rizka12
-                </td>
-                <td class="role">
-                    OWNER
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table align-items-center">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="sort text-white" data-sort="no">No</th>
+        <th scope="col" class="sort text-white" data-sort="name">Name</th>
+        <th scope="col" class="sort text-white" data-sort="email">Email</th>
+        <th scope="col" class="sort text-white" data-sort="role">Role</th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <tr *ngFor="let user of users; let i = index">
+        <td class="no">{{ i + 1 }}</td>
+        <td class="name">{{ user.name }}</td>
+        <td class="email">{{ user.email }}</td>
+        <td class="role">{{ user.role }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

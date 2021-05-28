@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { IUser } from 'src/app/interfaces/user-interface';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-show-user',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-user.component.css']
 })
 export class ShowUserComponent implements OnInit {
+  @Input() users!: IUser[]
 
   constructor() { }
 

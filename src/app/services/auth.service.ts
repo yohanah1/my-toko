@@ -24,11 +24,11 @@ export class AuthService {
       .pipe(catchError(this.handlingError));
   }
 
-  private handlingError(err: HttpErrorResponse) {
-    return throwError(err);
-  }
-
   public logoutUser(): void {
     localStorage.removeItem('Authorization');
+  }
+
+  private handlingError(err: HttpErrorResponse) {
+    return throwError(err);
   }
 }
