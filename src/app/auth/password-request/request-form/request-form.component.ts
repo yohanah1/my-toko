@@ -15,10 +15,10 @@ export class RequestFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.initresetRequestPasswordForm();
+    this.initResetRequestPasswordForm();
   }
 
-  initresetRequestPasswordForm() {
+  initResetRequestPasswordForm() {
     this.resetRequestPasswordForm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
     });
