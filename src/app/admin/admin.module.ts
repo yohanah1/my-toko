@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -28,6 +29,7 @@ import { UomFormComponent } from './admin-root/uom/uom-form/uom-form.component';
 import { BrandFormComponent } from './admin-root/brand/brand-form/brand-form.component';
 import { BrandListComponent } from './admin-root/brand/brand-list/brand-list.component';
 import { UomListComponent } from './admin-root/uom/uom-list/uom-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,11 @@ import { UomListComponent } from './admin-root/uom/uom-list/uom-list.component';
     BrandListComponent,
     UomListComponent
     ],
-  imports: [CommonModule, AdminRoutingModule],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AdminModule {}

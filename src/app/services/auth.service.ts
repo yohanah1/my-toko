@@ -24,11 +24,22 @@ export class AuthService {
       .pipe(catchError(this.handlingError));
   }
 
-  private handlingError(err: HttpErrorResponse) {
-    return throwError(err);
+  public resetRequestPasswordUser(user: {
+    email: string;
+  }): Observable<HttpResponse<IResponse>> {
+    return this.http
+      .post<IResponse>(`${environment.API_URL}auth/password/reset-request`, user, {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        observe: 'response',
+      })
+      .pipe(catchError(this.handlingError));
   }
 
   public logoutUser(): void {
     localStorage.removeItem('Authorization');
+  }
+
+  private handlingError(err: HttpErrorResponse) {
+    return throwError(err);
   }
 }
