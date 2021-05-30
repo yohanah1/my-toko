@@ -21,6 +21,13 @@ import { JumbotronComponent } from './admin-root/home/jumbotron/jumbotron.compon
 import { CardComponent } from './admin-root/home/card/card.component';
 import { UserFormComponent } from './admin-root/user/user-form/user-form.component';
 import { ShowUserComponent } from './admin-root/user/show-user/show-user.component';
+import { ProductListComponent } from './admin-root/product/product-list/product-list.component';
+import { UomComponent } from './admin-root/uom/uom.component';
+import { ProductFormComponent } from './admin-root/product/product-form/product-form.component';
+import { UomFormComponent } from './admin-root/uom/uom-form/uom-form.component';
+import { BrandFormComponent } from './admin-root/brand/brand-form/brand-form.component';
+import { BrandListComponent } from './admin-root/brand/brand-list/brand-list.component';
+import { UomListComponent } from './admin-root/uom/uom-list/uom-list.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +49,14 @@ import { ShowUserComponent } from './admin-root/user/show-user/show-user.compone
     JumbotronComponent,
     CardComponent,
     UserFormComponent,
-    ShowUserComponent
+    ShowUserComponent,
+    ProductListComponent,
+    UomComponent,
+    ProductFormComponent,
+    UomFormComponent,
+    BrandFormComponent,
+    BrandListComponent,
+    UomListComponent
     ],
   imports: [CommonModule, AdminRoutingModule],
 })
