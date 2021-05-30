@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="resetPasswordForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <input
           type="password"
@@ -10,15 +10,16 @@
           minlength="6"
           formControlName="password"
         />
-        <!-- <small
+        <small
           *ngIf="
-            !loginForm.get('password')!.valid && loginForm.get('password')!.touched
+            !resetPasswordForm.get('password')!.valid && resetPasswordForm.get('password')!.touched
           "
           class="help-block text-danger"
           >Password Must be 6-10 character</small
-        > -->
+        >
       </div>
     <button
+      [disabled]="!resetPasswordForm.valid"
       type="submit"
       class="btn btn-lg btn-primary col-12 col-md-12 Button"
     >

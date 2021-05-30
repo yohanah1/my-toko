@@ -20,7 +20,7 @@
       >Please Fiil a Valid Email</small
     >
   </div>
-  <button type="submit" class="btn btn-lg btn-primary col-12 col-md-12 Button">
+  <button [disabled]="!resetRequestPasswordForm.valid" type="submit" class="btn btn-lg btn-primary col-12 col-md-12 Button">
     Request Reset Password
   </button>
 </form>

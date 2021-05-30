@@ -29,7 +29,7 @@ export class PasswordRequestComponent implements OnInit {
           this.isLoaded = true;
           Swal.fire({
             icon: 'success',
-            title: 'Request Success',
+            title: 'Request Reset Password Success',
             text: `Please check Your email's inbox, to get the reset password link`,
             showConfirmButton: true,
             timer: 3000,
@@ -41,7 +41,7 @@ export class PasswordRequestComponent implements OnInit {
           this.isLoaded = true;
           Swal.fire({
             icon: 'error',
-            title: 'Request Failed',
+            title: 'Request Reset Password Failed',
             text: 'Sorry, Your email not registered',
             showConfirmButton: true,
             timer: 3000,
