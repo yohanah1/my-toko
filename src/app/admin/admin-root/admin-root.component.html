@@ -79,16 +79,6 @@
               </a>
             </div>
           </li>
-          <!-- <li class="nav-item" *ngIf="isOwner() || isInventory()">
-            <a
-              class="nav-link"
-              [routerLink]="'/admin/brand'"
-              routerLinkActive="active"
-            >
-              <i class="fa fa-bandcamp text-primary"></i>
-              <span class="nav-link-text">Brand</span>
-            </a>
-          </li> -->
           <li class="nav-item" *ngIf="isOwner() || isInventory()">
             <a
               class="nav-link"
@@ -97,6 +87,26 @@
             >
               <i class="fa fa-product-hunt fa-2x text-yellow"></i>
               <span class="nav-link-text">Product</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/brand'"
+              routerLinkActive="active"
+            >
+              <i class="fa fa-bandcamp text-primary"></i>
+              <span class="nav-link-text">Brand</span>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="isOwner() || isInventory()">
+            <a
+              class="nav-link"
+              [routerLink]="'/admin/uom'"
+              routerLinkActive="active"
+            >
+              <i class="fa fa-bandcamp text-primary"></i>
+              <span class="nav-link-text">Unit Of Measure</span>
             </a>
           </li>
           <li class="nav-item" *ngIf="isOwner() || isInventory()">
